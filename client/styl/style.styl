@@ -56,13 +56,15 @@ ul.nav
     &:first-child
       margin-left 0
 #content
-  text-align center
-  
+  #name, #message
+    text-align center
+
   #name input,
   #message textarea
-      font-size 1.2em
-      border none
-      padding 20px
+    font-family 'Roboto', Arial, sans-serif
+    font-size 1.2em
+    border none
+    padding 20px
   
   #chat
     list-style none
@@ -71,6 +73,16 @@ ul.nav
     overflow-y scroll
     max-height 400px
     
+    .msg
+      &-name
+        font-weight bold
+        background-color sec-color-light-2
+      &-delimiter
+        margin-right 10px
+        &:after
+          display: inline-block;
+          content: ':\00A0'
+        
   #message
     textarea
       resize: vertical;

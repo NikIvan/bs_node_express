@@ -4,7 +4,8 @@ import {
   txtMessage,
   btnSetName,
   btnSendMessage,
-  chat
+  chat,
+  createChatMessage
 } from './controls';
 
 let userName = 'Anonymous';
@@ -23,9 +24,8 @@ let getData = () => {
 
       for(let i in msg) {
         if(msg.hasOwnProperty(i)) {
-          let el = document.createElement('li');
-          el.innerHTML = `${msg[i].name}: ${msg[i].text}`;
-          chat.appendChild(el);
+          let chatMessage = createChatMessage(msg[i]);
+          chat.appendChild(chatMessage);
         }
       }
 

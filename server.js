@@ -2,11 +2,18 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 
+
 var rootRouter = require('./routes/index');
 var messagesRouter = require('./routes/messages');
 
 var app = express();
 require('./config/connections')(app);
+
+var server = app.listen(app.get('port'), () => {
+  console.log('Server is running on http://localhost:' + app.get('port'));
+});
+
+require('./serverWS')(server);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -44,8 +51,4 @@ app.use((err, req, res, next) => {
     status: err.status,
     message: err.message || 'Internal server error'
   });
-});
-
-app.listen(app.get('port'), () => {
-  console.log('Server is running on http://localhost:' + app.get('port'));
 });
