@@ -1,0 +1,11 @@
+extends ./layouts/layout.pug
+
+block title
+  title Welcome to chat!
+block content
+  #header
+    h1 Welcome to chat!
+  #content
+    ul.nav
+      li #[a.btn(href="/ajax") Ajax]
+      li #[a.btn(href="/websockets") Websockets]

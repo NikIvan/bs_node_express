@@ -1,0 +1,17 @@
+extends ./layouts/layout.pug
+
+block title
+  title Ajax
+block content
+  #header
+    h1 Chat on ajax
+  #content
+    div#name
+      input(type="text", placeholder="Your name", id="txtUserName")
+      input.btn(type="button", value="ok", id="btnSetName")
+    ul#chat
+    div#message
+      textarea#txtMessage(cols="30", rows="3")
+      input.btn(type="button", value="send", id="btnSendMessage")
+block scripts
+  script(src="/js/ajax.js")
