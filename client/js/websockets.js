@@ -26,6 +26,7 @@ btnSendMessage.addEventListener('click', () => {
 });
 
 socket.on('chat history', (msgs) => {
+  chat.innerHTML = '';
   for(let i in msgs) {
     if(msgs.hasOwnProperty(i)) {
       let chatMessage = createChatMessage(msgs[i]);
